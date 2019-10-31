@@ -1,4 +1,4 @@
-from flask import Flask, request, abort
+from flask import Flask, request, abort, redirect
 
 app = Flask(__name__)
 
@@ -25,3 +25,8 @@ def get_user(user_id):
     if not user:
         abort(404)
     return '<h2>Hello, {}</h2>'.format(user)
+
+
+@app.route('/example')
+def example():
+    return redirect('http://www.example.com')
