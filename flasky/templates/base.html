@@ -1,0 +1,26 @@
+{% extends 'bootstrap/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Flasky: {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="static/css/main.css" media="all">
+  </head>
+  <body>
+    <!-- Header Section -->
+    {% block header %}
+    {% endblock %}
+    
+    <!-- Main content -->
+    {% block content %}{% endblock %}
+    
+    <!-- Footer Section -->
+    {% block footer %}
+      {% include 'partials/footer.html' %}
+    {% endblock %}
+
+    <!-- Javascript files -->
+    <script src="static/js/main.js"></script>
+  </body>
+</html>

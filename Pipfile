@@ -7,6 +7,11 @@ verify_ssl = true
 
 [packages]
 flask = "*"
+flask-mail = "*"
+flask-login = "*"
+flask-bootstrap4 = "*"
+flask-wft = "*"
+flask-wtf = "*"
 
 [requires]
 python_version = "3.7"
