@@ -4,15 +4,22 @@
 User
 {% endblock %}
 
-{% block navbar %}
+{% block header %}
   {% include 'partials/header.html' %}
 {% endblock %}
 
 
 {% block content %}
-<main class="container">
-  <div class="page-header">
-    <h2>Hello {{ name|capitalize }}</h2>
-  </div>
-</main>
+<div class="form">
+  <form action="" method='POST'>
+    <div class="form-inline">
+      {{ form.hidden_tag() }}
+      {{ form.name.label }}<span class="mx-3">{{ form.name() }}</span>{{ form.submit() }}
+    </div>
+  </form>
+</div>
+
+<div class="form-display mt-5">
+  <h2>Hello, {% if name %} {{ name|capitalize }} {% else%} Stranger {% endif %}</h2>
+</div>
 {% endblock %}
