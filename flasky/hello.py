@@ -26,7 +26,6 @@ def agent():
 @app.route('/user/<int:user_id>')
 def get_user(user_id):
 #    user = load_user(user_id)
-
     if not user:
         abort(404)
     return '<h2>Hello, {}</h2>'.format(user)
@@ -34,7 +33,7 @@ def get_user(user_id):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'),404 
+    return render_template('404.html'), 404 
 
 
 @app.errorhandler(500)

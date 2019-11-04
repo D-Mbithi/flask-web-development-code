@@ -1,20 +1,23 @@
-{% extends 'bootstrap/base.html' %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <title>Flasky: {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" media="all">
     <link rel="stylesheet" href="static/css/main.css" media="all">
   </head>
   <body>
     <!-- Header Section -->
     {% block header %}
+      {% include 'partials/header.html' %}
     {% endblock %}
     
     <!-- Main content -->
-    {% block content %}{% endblock %}
-    
+    <main class='mmain container-fluid'>
+      {% block content %}
+      {% endblock %}
+    </main>
+
     <!-- Footer Section -->
     {% block footer %}
       {% include 'partials/footer.html' %}
