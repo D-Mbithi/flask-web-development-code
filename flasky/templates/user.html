@@ -21,5 +21,10 @@ User
 
 <div class="form-display mt-5">
   <h2>Hello, {% if name %} {{ name|capitalize }} {% else%} Stranger {% endif %}</h2>
+  {% if not known %}
+    <p>Pleased to meet you.</p>
+  {% else %}
+    <p>Welcome back, happy to see you again.</p>
+  {% endif %}
 </div>
 {% endblock %}

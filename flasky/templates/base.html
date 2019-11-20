@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" media="all">
   </head>
   <body>
-
-
     <!-- Header Section -->
     {% block header %}
       {% include 'partials/header.html' %}
     {% endblock %}
-    
+      
     <!-- Main content -->
     <main class='main container-fluid py-5'>
       {% block content %}
@@ -26,6 +24,6 @@
     {% endblock %}
 
     <!-- Javascript files -->
-    <script src="static/js/main.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
 </html>

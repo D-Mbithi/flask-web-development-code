@@ -12,6 +12,9 @@ flask-login = "*"
 flask-bootstrap4 = "*"
 flask-wft = "*"
 flask-wtf = "*"
+flask-moment = "*"
+flask-sqlachemy = "*"
+flask-migrate = "*"
 
 [requires]
 python_version = "3.7"
