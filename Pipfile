@@ -15,6 +15,7 @@ flask-wtf = "*"
 flask-moment = "*"
 flask-sqlachemy = "*"
 flask-migrate = "*"
+faker = "*"
 
 [requires]
 python_version = "3.7"

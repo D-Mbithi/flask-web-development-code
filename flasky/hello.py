@@ -3,14 +3,14 @@ from threading import Thread
 
 from flask_sqlalchemy import SQLAlchemy
 from flask import (
-        Flask, request, abort, render_template, session, redirect, url_for, flash
-        )
+    Flask, request, render_template, session, redirect, url_for
+)
 # from flask_bootstrap import Bootstrap
 from flask_migrate import Migrate
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-from flask_mail import Mail
+from flask_mail import Message, Mail
 
 # Base directory
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -18,9 +18,10 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Flask App Configuration
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(BASE_DIR, 'flask.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
+    os.path.join(BASE_DIR, 'flask.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'QCQweaC53r4l8Bd5NZ3#HM2WDp8jCyXz&*FL3hzmCAebAByU8SaM@C7CS^1P&'
+app.config['SECRET_KEY'] = 'QCQweaC53r4l8Dp8jCyXz&*FL3hzmCAebAByU8SaM@C7CS^1P&'
 
 
 # Configure Mail
@@ -36,6 +37,7 @@ app.config['FLASKY_ADMIN'] = os.environ.get('FLASKY_ADMIN')
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 mail = Mail(app)
+
 
 # Bootstrap(app)
 class Role(db.Model):
@@ -88,7 +90,7 @@ def user():
                     'New user',
                     'mail/new_user',
                     user=user
-                    )
+                )
         else:
             session['known'] = True
         session['name'] = form.name.data
@@ -99,7 +101,7 @@ def user():
         form=form,
         name=session.get('name'),
         known=session.get('known', False)
-        )
+    )
 
 
 @app.route('/agent')
@@ -128,8 +130,7 @@ def send_asyc_email(app, msg):
         mail.send(msg)
 
 
-
-def send_mail(to, subject, teplate, **kwargs):
+def send_mail(to, subject, template, **kwargs):
     msg = Message(
         app.config['FLASKY_MAIL_SUBJECT_PREFIX'] + subject,
         sender=app.config['FLASKY_MAIL_SENDER'],
