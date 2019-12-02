@@ -22,7 +22,7 @@ def index():
             session['known'] = True
         session['name'] = form.name.data
         form.name.data = ''
-        return redirect(url_for('.index'))
+        return redirect(url_for('main.index'))
     return render_template(
         'index.html',
         form=form,
@@ -33,5 +33,6 @@ def index():
 
 
 @main.route('/secret')
+@login_required
 def secret():
     return 'Only authenticated users can view'

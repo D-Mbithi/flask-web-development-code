@@ -1,0 +1,14 @@
+/* Forms Style */
+.form-container{
+    display: grid;
+    justify-content: center;
+    padding-top: 100px;
+}
+.form{
+    width: 40%;
+    min-width: 400px;
+}
+
+.form-body .btn{
+    margin: 20px 0px;
+}

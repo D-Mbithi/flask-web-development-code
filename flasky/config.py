@@ -15,6 +15,7 @@ class Config:
     FLASKY_MAIL_SENDER = 'Flasky Admin <mbaamutendwa@gmail.com>'
     FLASK_ADMIN = os.environ.get('FLASK_ADMIN')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    DEBUG_TB_INTERCEPT_REDIRECTS = False
 
     @staticmethod
     def init_app(app):

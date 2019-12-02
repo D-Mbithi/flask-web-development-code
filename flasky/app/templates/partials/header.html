@@ -14,13 +14,23 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
+      {% if current_user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+        </li>
+      {% endif %}
     </ul>
-    <span class="navbar-text">
-    Login
-    </span>
+{#     <ul class="navbar-nav ml-auto">
+      {% if current_user.is_authenticated %}
+        <li><a class="nav-link" href="{{ url_for('auth.login') }}">Login</a></li>
+      {% else %}
+        <li><a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a></li>
+      {% endif %}
+    </ul> #}
   </div>
 </nav>
 {% endblock %}

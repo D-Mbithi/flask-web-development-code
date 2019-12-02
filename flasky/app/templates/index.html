@@ -11,6 +11,9 @@ Home Page
 
 {% block content %}
 <main class="main container-fluid">
-  <h2>Hello world!</h2>
+<p>
+    Hello,{% if current_user.is_authenticated %} {{ current_user.username }} {% else %} stranger{% endif %}!
+</p>
+
 </main>
 {% endblock %}
